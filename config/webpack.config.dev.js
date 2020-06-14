@@ -7,17 +7,15 @@ module.exports = merge(baseConfig, {
 		rules: [],
 	},
 	plugins: [],
-	resolve: {
-		alias: {},
-	},
+	resolve: {},
 	devtool: "eval-source-map",
 	// 开发模式下的服务配置
 	devServer: {
 		contentBase: "./dist",
 		hot: true,
 		inline: true,
-		quiet: true,
 		port: 8888,
+		open: true,
 		proxy: {
 			"/api": {
 				target: "http:127.0.0.1:1803",

@@ -11,7 +11,20 @@
     "outDir": "./dist/",
     "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true 
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"],
+      "actions/*": ["src/actions/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "reducers/*": ["src/reducers/*"],
+      "router/*": ["src/router/*"],
+      "store/*": ["src/store/*"],
+      "styles/*": ["src/styles/*"],
+      "types/*": ["src/types/*"],
+      "utils/*": ["src/utils/*"],
+    }
   },
   "include": ["./src"]
 }

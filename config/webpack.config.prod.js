@@ -4,15 +4,13 @@ const path = require("path");
 
 // webpack配置
 module.exports = merge(baseConfig, {
-  mode: "production",
-  module: {
-    rules: [],
-  },
-  plugins: [],
-  resolve: {
-    alias: {},
-  },
-  devServer: {
-    quiet: true,
-  },
+	mode: "production",
+	module: {
+		rules: [],
+	},
+	plugins: [],
+	resolve: {},
+	devServer: {
+		quiet: true,
+	},
 });

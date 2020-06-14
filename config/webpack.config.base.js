@@ -3,12 +3,16 @@ const htmlWebpckPlugin = require("html-webpack-plugin");
 const progressBarWebpackPlugin = require("progress-bar-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+const joinPath = (p) => {
+	return path.join(__dirname, p);
+};
+
 // webpack配置
 module.exports = {
 	// 开发模式
 	mode: "development",
 	// 入口
-	entry: path.join(__dirname, "../src/index.tsx"),
+	entry: joinPath("../src/index.tsx"),
 	// 出口
 	output: {
 		path: path.resolve(__dirname, "../dist/"),
@@ -20,13 +24,13 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				loader: "babel-loader",
-				exclude: path.join(__dirname, "../node_modules/"),
+				exclude: joinPath("../node_modules/"),
 			},
 			{
 				// 处理ts tsx
 				test: /\.tsx?$/,
 				loader: "awesome-typescript-loader",
-				exclude: path.join(__dirname, "../node_modules/"),
+				exclude: joinPath("../node_modules/"),
 			},
 			{
 				// 加载其他文件
@@ -47,7 +51,7 @@ module.exports = {
 		new CleanWebpackPlugin(),
 		// 获取模板html
 		new htmlWebpckPlugin({
-			template: path.join(__dirname, "../public/index.html"),
+			template: joinPath("../public/index.html"),
 		}),
 	],
 	// 调试工具
@@ -56,7 +60,16 @@ module.exports = {
 	resolve: {
 		// 配置别名
 		alias: {
-			"@": path.resolve(__dirname, "./src"),
+			src: joinPath("../src"),
+			actions: joinPath("../src/actions"),
+			components: joinPath("../src/components"),
+			pages: joinPath("../src/pages"),
+			reducers: joinPath("../src/reducers"),
+			router: joinPath("../src/router"),
+			store: joinPath("../src/store"),
+			styles: joinPath("../src/styles"),
+			types: joinPath("../src/types"),
+			utils: joinPath("../src/utils"),
 		},
 		// 省略后缀 使用TS必须开 需要加 .
 		extensions: [".ts", ".tsx", ".js"],

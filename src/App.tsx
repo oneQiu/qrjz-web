@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import Router from "router/index";
 
 export default class App extends Component {
-  render() {
-    return <div>这是一个div</div>;
-  }
+	render() {
+		return <Router />;
+	}
 }
