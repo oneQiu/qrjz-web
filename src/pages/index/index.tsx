@@ -1,5 +1,12 @@
 import React, { Component } from "react";
+import { Layout } from "antd";
 
-export default function Index() {
-	return <div>test</div>;
+export default class Index extends Component {
+	render() {
+		return (
+			<div>
+				123
+			</div>
+		);
+	}
 }

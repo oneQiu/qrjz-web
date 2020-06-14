@@ -38,8 +38,8 @@ module.exports = {
 				loader: "file-loader",
 			},
 			{
-				test: /\.[(css)|(less)]$/,
-				loader: ["css-loader", "style-loader", "less-loader"],
+				test: /\.less$/,
+				use: ["style-loader", "css-loader", "less-loader"],
 			},
 		],
 	},
