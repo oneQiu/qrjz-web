@@ -2,6 +2,7 @@ const path = require("path");
 const htmlWebpckPlugin = require("html-webpack-plugin");
 const progressBarWebpackPlugin = require("progress-bar-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TsConfigPaths = require('tsconfig-paths-webpack-plugin');
 
 const joinPath = (p) => {
 	return path.join(__dirname, p);
@@ -38,7 +39,7 @@ module.exports = {
 				loader: "file-loader",
 			},
 			{
-				test: /\.less$/,
+				test: /\.(less|css)$/	,
 				use: ["style-loader", "css-loader", "less-loader"],
 			},
 			{
@@ -62,19 +63,24 @@ module.exports = {
 	devtool: "source-map",
 	// 解析
 	resolve: {
-		// 配置别名
-		alias: {
-			src: joinPath("../src"),
-			actions: joinPath("../src/actions"),
-			components: joinPath("../src/components"),
-			pages: joinPath("../src/pages"),
-			reducers: joinPath("../src/reducers"),
-			router: joinPath("../src/router"),
-			store: joinPath("../src/store"),
-			styles: joinPath("../src/styles"),
-			types: joinPath("../src/types"),
-			utils: joinPath("../src/utils"),
-		},
+		plugins: [
+			new TsConfigPaths({
+				configFile: joinPath('../tsconfig.json')
+			})
+		],
+		// 配置别名 使用了tsconfigpath插件能直接映射
+		// alias: {
+		// 	src: joinPath("../src"),
+		// 	actions: joinPath("../src/actions"),
+		// 	components: joinPath("../src/components"),
+		// 	pages: joinPath("../src/pages"),
+		// 	reducers: joinPath("../src/reducers"),
+		// 	router: joinPath("../src/router"),
+		// 	store: joinPath("../src/store"),
+		// 	styles: joinPath("../src/styles"),
+		// 	types: joinPath("../src/types"),
+		// 	utils: joinPath("../src/utils"),
+		// },
 		// 省略后缀 使用TS必须开 需要加 .
 		extensions: [".ts", ".tsx", ".js"],
 	},
