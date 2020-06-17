@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Layout, Input,Button } from "antd";
-import { AudioOutlined, MailOutlined} from "@ant-design/icons";
+import { Layout, Input, Button, Avatar } from "antd";
+import { AudioOutlined, MailOutlined, HeartOutlined } from "@ant-design/icons";
 import "./index.less";
 
 const { Header, Footer, Content, Sider } = Layout;
@@ -64,7 +64,7 @@ class HeaderInner extends Component<HeaderProps, HeaderState> {
 	}
 	onCreateCard = () => {
 		console.log(123);
-	}
+	};
 	render() {
 		const { loading } = this.state;
 		return (
@@ -78,8 +78,12 @@ class HeaderInner extends Component<HeaderProps, HeaderState> {
 					className="layout-search"
 				/>
 				<div className="layout-header-right">
-					<Button  className="layout-createButton" onClick={this.onCreateCard}>Create New Card</Button>
-					<MailOutlined />
+					<Button className="layout-createButton" onClick={this.onCreateCard}>
+						Create New Card
+					</Button>
+					<MailOutlined className="header-icon" />
+					<HeartOutlined className="header-icon" />
+					<Avatar />
 				</div>
 			</div>
 		);
