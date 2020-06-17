@@ -41,11 +41,7 @@ module.exports = {
 			{
 				test: /\.(less|css)$/	,
 				use: ["style-loader", "css-loader", "less-loader"],
-			},
-			{
-				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
-			},
+			}
 		],
 	},
 	// 增强功能
